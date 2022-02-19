@@ -1,0 +1,3 @@
+C:\Users\ylx\source\repos\SpaceEngineerScript\se_information_lcd_controller\obj\x64\Debug\se_information_lcd_controller.csproj.AssemblyReference.cache
+C:\Users\ylx\source\repos\SpaceEngineerScript\se_information_lcd_controller\obj\x64\Debug\se_information_lcd_controller.exe.config
+C:\Users\ylx\source\repos\SpaceEngineerScript\se_information_lcd_controller\obj\x64\Debug\se_information_lcd_controller.csproj.CoreCompileInputs.cache
