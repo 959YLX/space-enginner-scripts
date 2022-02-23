@@ -41,20 +41,24 @@ namespace IngameScript
                 Echo("args number error");
                 return;
             }
-            tickTimes++;
+            if (updateSource == UpdateType.Update1)
+            {
+                tickTimes++;
+            }
             if (tickTimes % MarqueeTickDuration == 0) {
                 // every 5 ticks
-                var marqueeArgs = args[0].Split('#');
-                MarqueeController(marqueeArgs[0], int.Parse(marqueeArgs[1]), tickTimes);
+                var marqueeLightGroupName = args[0];
+                MarqueeController(marqueeLightGroupName, tickTimes);
             }
         }
 
-        public void MarqueeController(string groupName, int oneSideCount, Int64 tickTimes)
+        public void MarqueeController(string groupName, Int64 tickTimes)
         {
             var margueeGroup = GridTerminalSystem.GetBlockGroupWithName(groupName);
             List<IMyInteriorLight> margueeLights = new List<IMyInteriorLight>();
             margueeGroup.GetBlocksOfType(margueeLights);
-            foreach(var light in margueeLights)
+            var oneSideCount = margueeLights.Count() / 2;
+            foreach (var light in margueeLights)
             {
                 var round = ((tickTimes / MarqueeTickDuration) % oneSideCount) + 1;
                 var lightIndex = int.Parse(light.CustomName.Trim().Split('-')[2].Trim());
